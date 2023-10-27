@@ -1,1 +1,2 @@
-echo 'python manage.py collectstatic' > build_files.sh
+pip install -r requirments.txt
+python3.9 manage.py collectstatic
