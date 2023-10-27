@@ -12,19 +12,9 @@
       "src": "/api/.*",
       "use": "@vercel/node"
     },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static",
-      "config": {
-        "distDir": "/staticfiles"
-      }
-    }
   ],
   "routes": [
-   {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
+   
     { "src": "/(.*)", "dest": "myProject/wsgi.py" }
   ]
 }
