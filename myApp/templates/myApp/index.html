@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dawit neri</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'index.css' %}" type="text/css">  
+
+</head>
+<body style= "background: url('https://mcdn.wallpapersafari.com/medium/54/13/R8psVP.jpg') no-repeat; background-size: cover;">
+    <div id="header">
+		<div class="container">
+      <nav>
+				<a  href={% url 'home' %} class="logo">Doff n.</a>
+				<ul id="sidemenu">
+					  <li><a href="#" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+            <li><a href={% url 'about' %}>About</a></li>
+            <li><a href={% url 'service' %}>Services</a></li>
+            <li><a href={% url 'work' %}>Work</a></li>
+            <li><a href={% url 'contact' %}>Contact</a></li>
+            <i class='bx bx-exit' onclick="closeMenu()"></i>
+				</ul>
+                <i class='bx bx-menu' id="bx-menu" onclick="openMenu()"></i>
+			</nav>
+      <div class="header-text">
+          <h1>Hi, I'm <span style="color: greenyellow;">Dawit Neri</span><br>From Ethiopia</h1>
+        </div>
+      </div>
+		</div>
+    
+
+          
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script src="{% static 'index.js' %}"></script>
+</body>
+</html>
