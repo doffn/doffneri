@@ -1,7 +1,6 @@
 import os
 # List of required packages
 required_packages = [
-    ('whitenoise', 'whitenoise'),
     ('requests', 'requests'),
     ('django', 'django')
     
