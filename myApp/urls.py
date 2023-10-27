@@ -13,3 +13,11 @@ urlpatterns = [
     path('service/', views.service, name='service'),
     path('work/', views.work, name='work'),
 ]+ static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+
+
+from django.urls import re_path
+
+if settings.DEBUG:
+    urlpatterns += [
+        re_path(r"^static/(?P<path>.*)$", views.serve),
+    ]
