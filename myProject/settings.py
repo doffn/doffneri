@@ -42,7 +42,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -72,15 +71,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myProject.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
@@ -124,7 +114,7 @@ STATICFILES_DIRS= [
 ]
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build"  ,"static")
+STATIC_ROOT = os.path.join(BASE_DIR,"static")
 
 
 
