@@ -113,7 +113,7 @@ STATICFILES_DIRS= [
     BASE_DIR / 'static/'
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'var', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticbuilds', 'static')
 
 
 # there is some problem here
