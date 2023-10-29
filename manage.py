@@ -3,7 +3,7 @@
 from myApp.__init__ import *
 import os
 import sys
-###
+
 
 def main():
     """Run administrative tasks."""
