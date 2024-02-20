@@ -1,25 +1,14 @@
-import os
 
-# List of required packages 
+# List of required packages
 required_packages = [
-    ('django', 'django'),
     ('time', 'time'),
-    ('collections', 'Counter'),
-    ('beautifulsoup4', 'BeautifulSoup'),
-    ('psutil', 'psutil'),
-    ('logging', 'logging'),
-    ('random', 'random'),
-    ('threading', 'threading'),
-    ('json', 'json'),
-    ('sys', 'sys'),
-    ('telebot', 'telebot'),
-   ('--force-reinstall urllib3==1.26.18', 'urllib3'),
-    ('pymongo', 'pymongo'),
-    ('schedule', 'schedule'),
-   # ('requests', 'requests')
+    ('requests', 'requests'),
+    ('os', 'os'),
+    ('django', 'django'),
 ]
 
-## Check if a package is installed
+import os
+# Check if a package is installed
 def package_installed(package_name):
     try:
         __import__(package_name)
@@ -28,8 +17,6 @@ def package_installed(package_name):
     else:
         return True
 
-
-
 # Install a package using pip
 def install_package(package_name):
     os.system(f"pip install {package_name}")
@@ -37,13 +24,11 @@ def install_package(package_name):
 # Import the necessary modules and packages
 for package in required_packages:
     package_name, import_name = package
-    try:
-        if package_installed(package_name):
-            globals()[import_name] = __import__(package_name)
-            #print("Packages already installed")
-        else:
-            print(f"Package {package_name} is missing. Please install it.")
-            install_package(package_name)
-    except Exception as e:
-        print(e)
+    if package_installed(package_name):
+        globals()[import_name] = __import__(package_name)
+        #print("Packages already installed")
+    else:
+        print(f"Package {package_name} is missing. Please install it.")
+        install_package(package_name)
+
 
