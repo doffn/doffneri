@@ -13,7 +13,7 @@ required_packages = [
     ('json', 'json'),
     ('sys', 'sys'),
     ('telebot', 'telebot'),
-   ('--force-reinstall urllib3==1.26.18', 'urllib3'),
+   ('--force-reinstall urllib3==2.0.5', 'urllib3'),
     ('pymongo', 'pymongo'),
     ('schedule', 'schedule'),
    # ('requests', 'requests')
