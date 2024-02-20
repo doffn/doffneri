@@ -446,23 +446,3 @@ def review():
         time.sleep(1)
 
 
-#fix_json()
-# Create the first thread object
-
-"""
-
-
-# Create the first thread object
-thread1 = threading.Thread(target=main_function)
-
-# Create the second thread object
-thread2 = threading.Thread(target=commands)
-thread3 = threading.Thread(target=review)
-try:
-    # Start both threads
-    thread1.start()
-    thread2.start()
-    thread3.start()
-except Exception as e:
-    print(e)
-    restart_program()"""
