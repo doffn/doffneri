@@ -16,7 +16,7 @@ I'm Dawit neri, a passionate Python programmer with a keen interest in Machine l
 
 ## Contact Me 📧
 
-Feel free to reach out to me via email at dawitneri888@gmail.com or connect with me on [LinkedIn](https://www.linkedin.com/in/doffneri) and [Twitter](https://twitter.com/doffneri). I'm open to collaboration opportunities, so let's connect and discuss exciting projects!
+Feel free to reach out to me via email at dawitneri888@gmail.com or connect with me on [LinkedIn](dawit-neri-16275a208) and [Twitter](https://twitter.com/doffneri). I'm open to collaboration opportunities, so let's connect and discuss exciting projects!
 
 ## Acknowledgements 🙏
 
