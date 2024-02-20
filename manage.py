@@ -4,8 +4,7 @@ from myApp.__init__ import *
 from myApp.main_code import main_function, commands, review
 import os
 import sys
-import threading
-#
+import concurrent.futures
 
 def main():
     """Run administrative tasks."""
@@ -20,21 +19,12 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-thread_main = threading.Thread(target=main)
+def run_functions_concurrently():
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.submit(main_function)
+        executor.submit(commands)
+        executor.submit(review)
 
-
-# Create the first thread object
-thread1 = threading.Thread(target=main_function)
-
-# Create the second thread object
-thread2 = threading.Thread(target=commands)
-thread3 = threading.Thread(target=review)
-try:
-    # Start both threads
-    thread_main.start()
-    thread1.start()
-    thread2.start()
-    thread3.start()
-except Exception as e:
-    print(e)
-    restart_program()
+if __name__ == "__main__":
+    main()  # Run administrative tasks
+    run_functions_concurrently()  # Run functions concurrently
