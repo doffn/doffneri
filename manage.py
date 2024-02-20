@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 from myApp.__init__ import *
-from myApp.main_code import *
+from myApp.main_code import main_function, commands, review
 import os
 import sys
+import threading
 
 
 def main():
@@ -19,6 +20,22 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+thread_main = threading.Thread(target=main)
 
-if __name__ == '__main__':
-    main()
+ 
+
+# Create the first thread object
+thread1 = threading.Thread(target=main_function)
+
+# Create the second thread object
+thread2 = threading.Thread(target=commands)
+thread3 = threading.Thread(target=review)
+try:
+    # Start both threads
+    thread_main.start()
+    thread1.start()
+    thread2.start()
+    thread3.start()
+except Exception as e:
+    print(e)
+    restart_program()
