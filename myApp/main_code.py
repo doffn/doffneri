@@ -158,7 +158,7 @@ def commands():
                 bot.reply_to(message, f'{message.text[5:]} User is Activated...')
                 data["usernames"][message.text[5:]]["Active"] = True
                 mongo_update(data, remove=False, set_empty=False)
-                restart_program()
+                #restart_program()
             else:
                 data["usernames"][message.text[5:]] = {
                     "created_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -171,7 +171,7 @@ def commands():
                 bot.reply_to(message, f'{message.text[5:]} is added to your account list\n-------╔( •̀ з •́)╝╚(•̀ ▪ •́ )╗-------')
 
                 mongo_update(data)
-                restart_program()
+                #restart_program()
 
     @bot.channel_post_handler(commands=['rem'])
     def handle_channel_rem(message):
@@ -182,7 +182,7 @@ def commands():
                 data["usernames"][message.text[5:]]["Active"] = False
                 bot.reply_to(message, f'{message.text[5:]} is removed\n-------〵(•ʘ̥ᴗʘ̥ •〵)-------')
                 mongo_update(data, remove=False, set_empty=False)
-                restart_program()
+                #restart_program()
 
     @bot.channel_post_handler(commands=['del'])
     def handle_channel_rem(message):
@@ -195,7 +195,7 @@ def commands():
                 bot.reply_to(message, f'{message.text[5:]} is Deleteded\n-------〵(•ʘ̥ᴗʘ̥ •〵)-------')
                 mongo_update(data)
 
-                restart_program()
+                #restart_program()
 
 
     @bot.channel_post_handler(commands=['ls'])
@@ -295,7 +295,7 @@ def main_function():
       restart_program()
     except Exception as e:
       print(f"There is an error: {e}")
-      restart_program()
+      #restart_program()
 
     username = [i for i in data["usernames"] if data["usernames"][i]["Active"]]
     result2 = []
@@ -429,7 +429,7 @@ def users_data():
         mongo_update(data, remove=False, set_empty=False)
 
         report(text)
-        restart_program()
+        #restart_program()
     except Exception as e:
         print(e)
 
