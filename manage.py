@@ -22,7 +22,6 @@ def main():
 
 thread_main = threading.Thread(target=main)
 
- 
 
 # Create the first thread object
 thread1 = threading.Thread(target=main_function)
