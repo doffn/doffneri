@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 from myApp.__init__ import *
-from myApp.main_code import main_function, commands, review
 import os
 import sys
-import concurrent.futures
+
 
 def main():
     """Run administrative tasks."""
@@ -19,12 +18,6 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-def run_functions_concurrently():
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.submit(main_function)
-        executor.submit(commands)
-        executor.submit(review)
 
-if __name__ == "__main__":
-    main()  # Run administrative tasks
-    run_functions_concurrently()  # Run functions concurrently
+if __name__ == '__main__':
+    main()
