@@ -1,7 +1,6 @@
 from django.shortcuts import render
 import requests
 import json
-from bs4 import BeautifulSoup
 import os
 
 
