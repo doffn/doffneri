@@ -5,6 +5,8 @@ required_packages = [
     ('requests', 'requests'),
     ('os', 'os'),
     ('django', 'django'),
+     ('beautifulsoup4', 'BeautifulSoup'),
+    ('json', 'json')
 ]
 
 import os
