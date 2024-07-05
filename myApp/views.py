@@ -12,6 +12,7 @@ def about(request):
     return render(request, 'myApp/about.html')
 
 def contact(request):
+    print(request.POST)
     return render(request, 'myApp/contact.html')
 
 def service(request):
