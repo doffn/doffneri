@@ -12,12 +12,7 @@ def about(request):
     return render(request, 'myApp/about.html')
 
 def contact(request):
-    if request.method == 'POST':
-        name = request.POST.get('Name')
-        email = request.POST.get('email')
-        message = request.POST.get('Message')
-        # Here, you can do something with the form data, such as save it to a database or send an email
-        return JsonResponse({'success': True})
+    print(request.POST)
     return render(request, 'myApp/contact.html')
 
 def service(request):
