@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import requests
-import telebot
+import telegram
 import json
 import os
 import csv
