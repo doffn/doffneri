@@ -26,3 +26,25 @@ form.addEventListener('submit', e => {
       submitButton.disabled = false; // Re-enable the submit button
     });
 });
+
+event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+
+        fetch('{% url "contact" %}', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                form.reset();
+                document.getElementById('span').textContent = 'Form submitted successfully!';
+            } else {
+                document.getElementById('span').textContent = 'Error submitting form.';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('span').textContent = 'Error submitting form.';
+        });
