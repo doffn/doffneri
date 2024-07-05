@@ -47,4 +47,4 @@ event.preventDefault();
         .catch(error => {
             console.error('Error:', error);
             document.getElementById('span').textContent = 'Error submitting form.';
-        });
+        });}
