@@ -12,8 +12,23 @@ def about(request):
     return render(request, 'myApp/about.html')
 
 def contact(request):
-    print(request.POST)
-    return render(request, 'myApp/contact.html')
+    if request.method == 'POST':
+        # Handle form submission
+        form = MyForm(request.POST)
+        if form.is_valid():
+            # Process valid form data
+            name = form.cleaned_data['Name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['Message']
+            # (Your logic to send data to Google Sheet or database)
+            return render(request, 'success.html')  # Redirect to success page
+        else:
+            # Handle invalid form data (e.g., display errors)
+            return render(request, 'contact.html', {'form': form})  # Render form with errors
+    else:
+        # Initial GET request (display blank form)
+        form = MyForm()
+        return render(request, 'contact.html', {'form': form})
 
 def service(request):
     return render(request, 'myApp/service.html')
