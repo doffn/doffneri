@@ -13,7 +13,7 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        print(request.get)
+        print(request.POST)
     return render(request, 'myApp/contact.html')
 
 def service(request):
