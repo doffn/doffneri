@@ -46,7 +46,7 @@ def contact(request):
 
         response = send_message_to_telegram_bot(bot_token, chat_id, message_text)
         print(response)
-        print(request.POST)
+        print(request.GET)
     return render(request, 'myApp/contact.html')
 
 def service(request):
