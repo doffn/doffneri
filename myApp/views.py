@@ -34,10 +34,13 @@ def about(request):
     return render(request, 'myApp/about.html')
 
 def contact(request):
+    print("I am inside contact")
     if request.method == 'POST':
         bot_token = os.getenv("TOKEN")
         chat_id = os.getenv("ID")
-        message_text = "Hello, this is a test message from my Python script!"
+        name = request.POST.get('Name')
+        email = request.POST.get('email')
+        message_text = f"New message from {name} ({email}):\n{request.POST.get('Message')}"
 
         response = send_message_to_telegram_bot(bot_token, chat_id, message_text)
         print(response)
