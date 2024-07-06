@@ -41,7 +41,8 @@
                     <a href="https://docs.google.com/document/d/1SzAch2anGJG0dioJcM5azMb4OUJr3bHLS3r5DyPGlIw/edit?usp=sharing" target = "_blank" class="btn btn2">Download Cv</a>
                 </div>
                 <div class="contact-right">
-                    <form name="submit-to-google-sheet" method="POST">
+                    <form name="submit-to-google-sheet" method="post">
+                        {% csrf_token %}
                         <input type="text" name="Name" placeholder="Your Name" required>
                         <input type="text" name="email" placeholder="your Email" required>
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
