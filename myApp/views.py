@@ -12,7 +12,7 @@ def about(request):
     return render(request, 'myApp/about.html')
 
 def contact(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
         print(request.get)
     return render(request, 'myApp/contact.html')
 
