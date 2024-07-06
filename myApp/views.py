@@ -35,6 +35,7 @@ def about(request):
 
 def contact(request):
     print("I am inside contact")
+    print(request)
     if request.method == 'POST':
         bot_token = os.getenv("TOKEN")
         chat_id = os.getenv("ID")
