@@ -14,7 +14,7 @@ ID = os.getenv("ID")
 def report(message, channel_id=ID):
 
     try:
-      bot.send_message(chat_id=chat_id, text=message, parse_mode='MarkdownV2')
+      bot.send_message(chat_id=ID, text=message, parse_mode='MarkdownV2')
     except Exception as e:
         print(f"Failed to send message: {e}")
 
