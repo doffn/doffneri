@@ -9,7 +9,7 @@ import requests
 bot = telebot.TeleBot(os.getenv("TOKEN"))
 
 
-chat_id = os.getenv("ID")
+ID = os.getenv("ID")
 
 def report(message, channel_id=ID):
 
