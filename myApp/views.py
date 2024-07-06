@@ -42,6 +42,7 @@ def contact(request):
         name = request.POST.get('Name')
         email = request.POST.get('email')
         message_text = f"New message from {name} ({email}):\n{request.POST.get('Message')}"
+        print(message_text)
 
         response = send_message_to_telegram_bot(bot_token, chat_id, message_text)
         print(response)
