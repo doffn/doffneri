@@ -39,8 +39,8 @@ def contact(request):
     if request.method == 'GET':
         bot_token = os.getenv("TOKEN")
         chat_id = os.getenv("ID")
-        name = request.POST.get('Name')
-        email = request.POST.get('email')
+        name = request.GET.get('Name')
+        email = request.GET.get('email')
         message_text = f"New message from {name} ({email}):\n{request.POST.get('Message')}"
         print(message_text)
 
