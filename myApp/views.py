@@ -6,20 +6,17 @@ import csv
 
 import requests
 
-bot_token = os.getenv("TOKEN")
+bot = telebot.TeleBot(os.getenv("TOKEN"))
+
+
 chat_id = os.getenv("ID")
 
-def send_message_to_bot(bot_token, chat_id, message):
-    """
-    Sends a message to a Telegram bot.
+def report(message, channel_id=ID):
 
-    Args:
-        bot_token (str): The API token of the Telegram bot.
-        chat_id (int): The chat ID of the recipient.
-        message (str): The message to be sent.
-    """
-    bot = telegram.Bot(token=bot_token)
-    bot.send_message(chat_id=chat_id, text=message)
+    try:
+      bot.send_message(chat_id=chat_id, text=message, parse_mode='MarkdownV2')
+    except Exception as e:
+        print(f"Failed to send message: {e}")
 
 def home(request):
     return render(request, 'myApp/index.html')
@@ -36,7 +33,7 @@ def contact(request):
         message_text = f"New message from {name} ({email}):\n{request.POST.get('Message')}"
         print(message_text)
 
-        response = send_message_to_bot(bot_token, chat_id, "Hi there")
+        response = report("hi there")
         print(response)
         print(request.GET)
     return render(request, 'myApp/contact.html')
