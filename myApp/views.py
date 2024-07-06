@@ -1,5 +1,5 @@
 from django.shortcuts import render
-import telegram
+import telebot
 import json
 import os
 import csv
@@ -33,8 +33,7 @@ def contact(request):
         message_text = f"New message from {name} ({email}):\n{request.POST.get('Message')}"
         print(message_text)
 
-        response = report("hi there")
-        print(response)
+        report("hi there")
         print(request.GET)
     return render(request, 'myApp/contact.html')
 
