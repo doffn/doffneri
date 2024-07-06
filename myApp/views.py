@@ -1,31 +1,25 @@
 from django.shortcuts import render
-import requests
+import telegram
 import json
 import os
 import csv
 
 import requests
 
-def send_message_to_telegram_bot(bot_token, chat_id, message_text):
+bot_token = os.getenv("TOKEN")
+chat_id = os.getenv("ID")
+
+def send_message_to_bot(bot_token, chat_id, message):
     """
     Sends a message to a Telegram bot.
-    
-    Args:
-        bot_token (str): The authentication token of the Telegram bot.
-        chat_id (str): The unique identifier for the chat or user to send the message to.
-        message_text (str): The text of the message to be sent.
-    
-    Returns:
-        dict: The response from the Telegram API, containing information about the sent message.
-    """
-    url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-    data = {
-        "chat_id": chat_id,
-        "text": message_text
-    }
-    response = requests.post(url, data=data)
-    return response.json()
 
+    Args:
+        bot_token (str): The API token of the Telegram bot.
+        chat_id (int): The chat ID of the recipient.
+        message (str): The message to be sent.
+    """
+    bot = telegram.Bot(token=bot_token)
+    bot.send_message(chat_id=chat_id, text=message)
 
 def home(request):
     return render(request, 'myApp/index.html')
@@ -37,14 +31,12 @@ def contact(request):
     print("I am inside contact")
     print(request)
     if request.method == 'GET':
-        bot_token = os.getenv("TOKEN")
-        chat_id = os.getenv("ID")
         name = request.GET.get('Name')
         email = request.GET.get('email')
         message_text = f"New message from {name} ({email}):\n{request.POST.get('Message')}"
         print(message_text)
 
-        response = send_message_to_telegram_bot(bot_token, chat_id, message_text)
+        response = send_message_to_bot(bot_token, chat_id, "Hi there")
         print(response)
         print(request.GET)
     return render(request, 'myApp/contact.html')
