@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages  # For success messages
 import telebot
+from telebot import formatting
 import json
 import os
 import csv
@@ -10,10 +11,10 @@ import requests
 bot = telebot.TeleBot(os.getenv("TOKEN"))
 ID = os.getenv("ID")
 
-def report(message, channel_id=ID):
+def report(message, channel_id=ID, ):
 
     try:
-      bot.send_message(chat_id=ID, text=message)
+        bot.send_message(chat_id=ID, text=message, parse_mode='MarkdownV2')
     except Exception as e:
         print(f"Failed to send message: {e}")
 
@@ -24,7 +25,6 @@ def about(request):
     return render(request, 'myApp/about.html')
 
 def contact(request):
-    report(request)
     if request.method == 'POST':
         print(request.POST)
         name = request.POST.get('name')
@@ -32,10 +32,8 @@ def contact(request):
         message = request.POST.get('Message')  # Use correct name (case-sensitive)
 
         # Process the form data (e.g., send email or store in database)
-        report(f"name: {name} email: {email} message: {message}")
+        report(f"formatting.mbold(name:) {name} \nformatting.mbold(email:) {email} \nformatting.mbold(message:) {message}")
         # You'll need to implement email sending logic here
-
-        messages.success(request, 'Your message has been sent!')  # Success message
 
 
     return render(request, 'myApp/contact.html')
