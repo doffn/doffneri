@@ -36,7 +36,7 @@ def contact(request):
         # Redirect to a success page or display a success message
         return redirect('success_url')
 
-    return render(request, 'your_template.html', {})
+    return render(request, 'contact.html', {})
 
 def service(request):
     return render(request, 'myApp/service.html')
