@@ -25,15 +25,17 @@ def about(request):
     return render(request, 'myApp/about.html')
 
 def contact(request):
-    if request.method == 'POST':
-        name = request.POST.get('Name')
-        email = request.POST.get('email')
-        message = request.POST.get('Message')
+    print("I am inside contact")
+    print(request)
+    if request.method == 'GET':
+        name = request.GET['Name']
+        email = request.GET['email']
+        message_text = f"New message from {name} ({email}):\n{request.GET['Message']}"
+        print(message_text)
 
-        # Do something with the form data, e.g., save to a database, send an email, etc.
-        print(f"name: {name}; email: {email}; message: {message}")
-
-    return render(request, 'myApp/contact.html', {})
+        report("hi there")
+        print(request.GET)
+    return render(request, 'myApp/contact.html')
 
 def service(request):
     return render(request, 'myApp/service.html')
