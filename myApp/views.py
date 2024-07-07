@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import telebot
 import json
 import os
@@ -23,17 +23,15 @@ def about(request):
     return render(request, 'myApp/about.html')
 
 def contact(request):
-    print("I am inside contact")
-    print(request)
-    if request.method == 'GET':
-        name = request.GET.get('name')
-        email = request.GET.get('email')
-        message_text = f"New message from {name} ({email}):\n{request.POST.get('Message')}"
-        print(message_text)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('Message')
 
-        report("hi there")
-        print(request.GET)
-    return render(request, 'myApp/contact.html')
+        # Redirect the user to a success page or the same page
+        return redirect('contact-success')
+
+    return render(request, 'contact.html')
 
 def service(request):
     return render(request, 'myApp/service.html')
