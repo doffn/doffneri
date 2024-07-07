@@ -27,11 +27,11 @@ def contact(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('Message')
-
+        report(f"name: {name} email: {email} message: {message}")
         # Redirect the user to a success page or the same page
         return redirect(request.path)
 
-    return render(request, 'contact.html')
+    return render(request, 'myApp/contact.html')
 
 def service(request):
     return render(request, 'myApp/service.html')
