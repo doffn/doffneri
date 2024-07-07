@@ -33,10 +33,7 @@ def contact(request):
         # Do something with the form data, e.g., save to a database, send an email, etc.
         print(f"name: {name}; email: {email}; message: {message}")
 
-        # Redirect to a success page or display a success message
-        return redirect('success_url')
-
-    return render(request, 'contact.html', {})
+    return render(request, 'myApp/contact.html', {})
 
 def service(request):
     return render(request, 'myApp/service.html')
