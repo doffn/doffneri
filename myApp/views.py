@@ -25,17 +25,18 @@ def about(request):
     return render(request, 'myApp/about.html')
 
 def contact(request):
-    print("I am inside contact")
-    print(request)
     if request.method == 'POST':
         name = request.POST.get('Name')
         email = request.POST.get('email')
-        message_text = f"New message from {name} ({email}):\n{request.POST.get('Message')}"
-        print(message_text)
+        message = request.POST.get('Message')
 
-        report("hi there")
-        print(request.GET)
-    return render(request, 'myApp/contact.html')
+        # Do something with the form data, e.g., save to a database, send an email, etc.
+        print(f"name: {name}; email: {email}; message: {message}")
+
+        # Redirect to a success page or display a success message
+        return redirect('success_url')
+
+    return render(request, 'your_template.html', {})
 
 def service(request):
     return render(request, 'myApp/service.html')
