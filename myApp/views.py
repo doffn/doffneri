@@ -29,7 +29,7 @@ def contact(request):
         message = request.POST.get('Message')
 
         # Redirect the user to a success page or the same page
-        return redirect('contact-success')
+        return redirect(request.path)
 
     return render(request, 'contact.html')
 
