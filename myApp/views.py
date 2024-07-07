@@ -35,9 +35,8 @@ def contact(request):
 
         messages.success(request, 'Your message has been sent!')  # Success message
 
-    form = ContactForm()  # Create an empty form for initial rendering
 
-    return render(request, 'myApp/contact.html', {'form': form})
+    return render(request, 'myApp/contact.html')
 
 def service(request):
     return render(request, 'myApp/service.html')
