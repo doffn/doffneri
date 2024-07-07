@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages  # For success messages
 import telebot
 import json
 import os
@@ -24,14 +25,20 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        report("i am inside")
         name = request.POST.get('name')
         email = request.POST.get('email')
-        message = request.POST.get('Message')
-        report(f"name: {name} email: {email} message: {message}")
-        # Redirect the user to a success page or the same page
+        message = request.POST.get('Message')  # Use correct name (case-sensitive)
 
-    return render(request, 'myApp/contact.html')
+        # Process the form data (e.g., send email or store in database)
+        report(f"name: {name} email: {email} message: {message}")
+        # You'll need to implement email sending logic here
+
+        messages.success(request, 'Your message has been sent!')  # Success message
+        return redirect('success_url')  # Redirect to a success page (replace with your URL name)
+
+    form = ContactForm()  # Create an empty form for initial rendering
+
+    return render(request, 'myApp/contact.html', {'form': form})
 
 def service(request):
     return render(request, 'myApp/service.html')
