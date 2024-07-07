@@ -30,7 +30,6 @@ def contact(request):
         message = request.POST.get('Message')
         report(f"name: {name} email: {email} message: {message}")
         # Redirect the user to a success page or the same page
-        return redirect(request.path)
 
     return render(request, 'myApp/contact.html')
 
