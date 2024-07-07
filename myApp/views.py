@@ -7,14 +7,12 @@ import csv
 import requests
 
 bot = telebot.TeleBot(os.getenv("TOKEN"))
-
-
 ID = os.getenv("ID")
 
 def report(message, channel_id=ID):
 
     try:
-      bot.send_message(chat_id=ID, text=message, parse_mode='MarkdownV2')
+      bot.send_message(chat_id=ID, text=message)
     except Exception as e:
         print(f"Failed to send message: {e}")
 
