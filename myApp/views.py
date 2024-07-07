@@ -34,7 +34,6 @@ def contact(request):
         # You'll need to implement email sending logic here
 
         messages.success(request, 'Your message has been sent!')  # Success message
-        return redirect('success_url')  # Redirect to a success page (replace with your URL name)
 
     form = ContactForm()  # Create an empty form for initial rendering
 
