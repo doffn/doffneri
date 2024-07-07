@@ -24,6 +24,7 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
+        report("i am inside")
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('Message')
