@@ -24,7 +24,9 @@ def about(request):
     return render(request, 'myApp/about.html')
 
 def contact(request):
+    report(request)
     if request.method == 'POST':
+        print(request.POST)
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('Message')  # Use correct name (case-sensitive)
