@@ -28,9 +28,9 @@ def contact(request):
     print("I am inside contact")
     print(request)
     if request.method == 'GET':
-        name = request.GET['Name']
-        email = request.GET['email']
-        message_text = f"New message from {name} ({email}):\n{request.GET['Message']}"
+        name = request.GET.get('name')
+        email = request.GET.get('email')
+        message_text = f"New message from {name} ({email}):\n{request.POST.get('Message')}"
         print(message_text)
 
         report("hi there")
