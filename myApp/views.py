@@ -26,14 +26,17 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        print(request.POST)
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('Message')  # Use correct name (case-sensitive)
+        try:
+            print(request.POST)
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            message = request.POST.get('Message')  # Use correct name (case-sensitive)
 
-        # Process the form data (e.g., send email or store in database)
-        #report(f"New user 🎉🎉🎉🎉\n{formatting.mbold(name:)} {name} \n{formatting.mbold(email:)} {email} \n{formatting.mbold(message:)} {message}")
-        # You'll need to implement email sending logic here
+            # Process the form data (e.g., send email or store in database)
+            report(f"New user 🎉🎉🎉🎉\n{formatting.mbold(name:)} {name} \n{formatting.mbold(email:)} {email} \n{formatting.mbold(message:)} {message}")
+            # You'll need to implement email sending logic here
+        except Exception as e:
+            report(e)
     return render(request, 'myApp/contact.html')
 
 def service(request):
