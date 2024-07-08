@@ -33,7 +33,7 @@ def contact(request):
             message = request.POST.get('Message')  # Use correct name (case-sensitive)
 
             # Process the form data (e.g., send email or store in database)
-            report(f"New user 🎉🎉🎉🎉\n{formatting.mbold('name:')} {name} \n{formatting.mbold('email:')} {email} \n{formatting.mbold('message:')} {message}")
+            report(f"New user 🎉🎉🎉🎉\n{formatting.mbold('Name:')} {name} \n{formatting.mbold('Email:')} {email} \n{formatting.mbold('Message:')} {message}")
             # You'll need to implement email sending logic here
         except Exception as e:
             report(e)
