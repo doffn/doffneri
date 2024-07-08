@@ -34,8 +34,6 @@ def contact(request):
         # Process the form data (e.g., send email or store in database)
         report(f"""New user 🎉🎉🎉🎉\n{formatting.mbold(name:)} {name} \n{formatting.mbold(email:)} {email} \n{formatting.mbold(message:)} {message}""")
         # You'll need to implement email sending logic here
-
-
     return render(request, 'myApp/contact.html')
 
 def service(request):
