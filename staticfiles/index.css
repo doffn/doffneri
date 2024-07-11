@@ -13,7 +13,8 @@
   /* Style for the body */
   body {
     background-color: #0cbaba;
-    background-image: linear-gradient(315deg, #C33764  0%, #1D2671 74%) fixed;
+    background-image: linear-gradient(315deg, #C33764  0%, #1D2671 74%);
+    background-repeat: no-repeat;
     color: wheat;
     background-size: cover;
   }
