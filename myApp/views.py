@@ -26,6 +26,7 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
+        print(request)
         try:
             print(request.POST)
             name = request.POST.get('name')
