@@ -48,11 +48,10 @@
     font-size: 30px;
     font-weight: 600;
     margin-top: 25px;
-  }
-
-  a.logo {
     text-decoration: none;
   }
+
+ 
 
   nav ul li{
     display: inline-block;
@@ -189,7 +188,7 @@
   }
   /* ------------services ------------*/
   #services{
-    padding:30px 0;
+    padding: 0;
   }
 
   .services-list{
@@ -235,7 +234,7 @@
    /* ------------work ------------*/
 
    #portfolio{
-    padding: 40px 0;
+    padding: 0;
    }
 
    .work-list{
@@ -263,7 +262,7 @@
    .layer{
     width: 100%;
     height: 0;
-    background: linear-gradient(rgba(0,0,0,0.6), r);
+    background: linear-gradient(rgba(0,0,0,0.6), red);
     border-radius: 10px;
     position: absolute;
     left: 0;
@@ -324,7 +323,7 @@
 
    /*------------------contact-------------*/
    #contact {
-      padding: -20% ;
+      padding: 0;
    }
 
    .row {
@@ -475,8 +474,6 @@
     }
     .about-col-1 {
         margin-bottom: 30px;
-        width: 75%;
-        height: 75%
     }
     .about-col-2 {
         font-size: 14px;
@@ -502,5 +499,4 @@
   .row {
      margin-top: 0;
    }
-
 
