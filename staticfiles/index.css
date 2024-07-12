@@ -334,9 +334,6 @@
      justify-content: space-between;
    }
 
-  .sub-title {
-    
-  }
 
    .contact-left {
     flex-basis: 35%;
@@ -498,7 +495,7 @@
    }
 
   .active {
-    color: #66FCF1;}
+    color: #e4174e;}
 
   .row {
      margin-top: 0;
