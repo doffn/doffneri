@@ -14,6 +14,9 @@
   body {
     background-color: #0cbaba;
     background-image: linear-gradient(315deg, #C33764  0%, #1D2671 74%);
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: wheat;
     background-size: cover;
   }
@@ -472,6 +475,8 @@
     }
     .about-col-1 {
         margin-bottom: 30px;
+        width: 75%;
+        height: 75%
     }
     .about-col-2 {
         font-size: 14px;
