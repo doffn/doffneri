@@ -124,6 +124,10 @@
   .about-col-2 {
     flex-basis: 60%;
   }
+
+  .about-text {
+    text-align: justify;
+  }
   
   .sub-title {
     font-size: 60px;
