@@ -30,6 +30,8 @@ function addWorkItem(imgSrc, altText, title, description, link) {
   // create the link element
   var a = document.createElement('a');
   a.href = link;
+  a.target = '_blank'; // open the link in a new tab
+  
   var icon = document.createElement('i');
   icon.className = 'bx bx-link-external';
   a.appendChild(icon);
