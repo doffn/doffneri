@@ -28,6 +28,7 @@
     height: 100vh;
     background-size: cover;
     background-position: center;
+    background-color: rgb(1, 1, 1);
   }
 
   .container {
