@@ -424,6 +424,24 @@
     display: block
   }
 
+  .notification {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.notification.success {
+    background: #28a745;
+    color: white;
+}
+
+.notification.error {
+    background: #dc3545;
+    color: white;
+}
+
+
    /* ---------------css for small screen------------- */
 
    nav .bx {
