@@ -26,50 +26,19 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
+        print(request)
         try:
+            print(request.POST)
             name = request.POST.get('name')
             email = request.POST.get('email')
-            message = request.POST.get('Message')
-            file = request.FILES.get('attachment')
+            message = request.POST.get('Message')  # Use correct name (case-sensitive)
 
-            text_report = (
-                f"New user 🎉🎉🎉🎉\n"
-                f"{formatting.mbold('Name:')} {formatting.escape_markdown(name)}\n"
-                f"{formatting.mbold('Email:')} {formatting.escape_markdown(email)}\n"
-                f"{formatting.mbold('Message:')} {formating.escape_markdown(message)}"
-            )
-
-            # Send text message
-            bot.send_message(chat_id=ID, text=text_report, parse_mode='MarkdownV2')
-
-            # ✅ PROPER FILE HANDLING
-            if file:
-                file.seek(0)  # reset pointer
-
-                # If image → send as photo
-                if file.content_type.startswith('image'):
-                    bot.send_photo(chat_id=ID, photo=file)
-
-                # If video → send as video
-                elif file.content_type.startswith('video'):
-                    bot.send_video(chat_id=ID, video=file)
-
-                # Otherwise → send as document
-                else:
-                    bot.send_document(
-                        chat_id=ID,
-                        document=file,
-                        visible_file_name=file.name
-                    )
-
-            messages.success(request, "✅ Message sent successfully!")
-
+            # Process the form data (e.g., send email or store in database)
+            report(f"New user 🎉🎉🎉🎉\n{formatting.mbold('Name:')} {formatting.escape_markdown(name)} \n{formatting.mbold('Email:')} {formatting.escape_markdown(email)} \n{formatting.mbold('Message:')} {formatting.escape_markdown(message)}")
+            # You'll need to implement email sending logic here
         except Exception as e:
-            print("UPLOAD ERROR:", e)
-            messages.error(request, "❌ Something went wrong. Try again.")
-
+            report(e)
     return render(request, 'myApp/contact.html')
-
 
 def service(request):
     return render(request, 'myApp/service.html')

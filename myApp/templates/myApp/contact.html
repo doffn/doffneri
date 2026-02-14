@@ -10,83 +10,57 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'index.css' %}" type="text/css">
 </head>
-
 <body>
-<div id="header">
-    <div class="container">
-        <nav>
-            <a href="{% url 'home' %}" class="logo">Doff n.</a>
-            <ul id="sidemenu">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'service' %}">Services</a></li>
-                <li><a href="{% url 'work' %}">Work</a></li>
-                <li><a class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a></li>
-                <i class='bx bx-exit' onclick="closeMenu()"></i>
-            </ul>
-            <i class='bx bx-menu' id="bx-menu" onclick="openMenu()"></i>
-        </nav>
-    </div>
-
-    <div id="contact">
+    <div id="header">
+		<div class="container">
+      <nav>
+				<a  href={% url 'home' %} class="logo">Doff n.</a>
+				<ul id="sidemenu">
+					  <li><a href={% url 'home' %} >Home</a></li>
+            <li><a href={% url 'about' %}>About</a></li>
+            <li><a href={% url 'service' %}>Services</a></li>
+            <li><a href={% url 'work' %}>Work</a></li>
+            <li><a class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a></li>
+            <i class='bx bx-exit' onclick="closeMenu()"></i>
+				</ul>
+                <i class='bx bx-menu' id="bx-menu" onclick="openMenu()"></i>
+			</nav>
+      </div>
+      <div id="contact">
         <div class="container">
             <div class="row">
-
-                <!-- LEFT SIDE -->
                 <div class="contact-left">
                     <h1 class="sub-title">Contact me</h1>
                     <p><i class='bx bxs-envelope'></i>dawitneri888@gmail.com</p>
                     <p><i class='bx bx-phone-call'></i>+251988186840</p>
-
                     <div class="social-icons">
                         <a href="https://www.linkedin.com/in/dawit-neri-16275a208/" target="_blank"><i class='bx bxl-linkedin'></i></a>
                         <a href="https://twitter.com/doffneri" target="_blank"><i class='bx bxl-twitter'></i></a>
                         <a href="https://t.me/doffn" target="_blank"><i class='bx bxl-telegram'></i></a>
                         <a href="https://github.com/doffn" target="_blank"><i class='bx bxl-github'></i></a>
                     </div>
-
-                    <a href="https://drive.google.com/file/d/1_7M6EfbnPgnhQbHE5HQkcN19cCK6eQr2/view?usp=sharing" 
-                       target="_blank" class="btn btn2">Download Cv</a>
+                    <a href="https://drive.google.com/file/d/1_7M6EfbnPgnhQbHE5HQkcN19cCK6eQr2/view?usp=sharing" target = "_blank" class="btn btn2">Download Cv</a>
                 </div>
-
-                <!-- RIGHT SIDE -->
                 <div class="contact-right">
-
-                    <!-- DJANGO NOTIFICATIONS -->
-                    {% if messages %}
-                        {% for message in messages %}
-                            <div class="notification {{ message.tags }}">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-
-                    <!-- CLEAN FORM (NO JS INTERFERENCE) -->
-                    <form method="POST" enctype="multipart/form-data" action="{% url 'contact' %}">
+                    <form name="submit-to-google-sheet" method="post">
                         {% csrf_token %}
-
                         <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="email" name="email" placeholder="your Email" required>
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-
-                        <!-- FILE UPLOAD -->
-                        <input type="file" name="attachment" id="attachment">
-
                         <button type="submit" class="btn btn2">Submit</button>
                     </form>
-
+                <span id="span" ></span>
                 </div>
             </div>
         </div>
-
         <div class="copyright">
             <p>Copyright @ Dawit Neri</p>
         </div>
-    </div>
-</div>
-
+      </div>
+		</div>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script src="{% static 'index.js' %}" type="text/javascript"></script>
-
+<!--<script src="{% static 'contact.js' %}" type="text/javascript"></script> -->
 </body>
 </html>
+
