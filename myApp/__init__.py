@@ -4,7 +4,7 @@ required_packages = [
     ('time', 'time'),
     ('requests', 'requests'),
     ('os', 'os'),
-    ('django', 'django'),
+    ('Django', 'Django'),
      ('beautifulsoup4', 'BeautifulSoup'),
     ('json', 'json')
 ]
