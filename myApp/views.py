@@ -29,32 +29,47 @@ def contact(request):
         try:
             name = request.POST.get('name')
             email = request.POST.get('email')
-            message = request.POST.get('Message')  # keep your original case
-            file = request.FILES.get('attachment')  # new file field
+            message = request.POST.get('Message')
+            file = request.FILES.get('attachment')
 
-            # Format safe markdown
             text_report = (
                 f"New user 🎉🎉🎉🎉\n"
                 f"{formatting.mbold('Name:')} {formatting.escape_markdown(name)}\n"
                 f"{formatting.mbold('Email:')} {formatting.escape_markdown(email)}\n"
-                f"{formatting.mbold('Message:')} {formatting.escape_markdown(message)}"
+                f"{formatting.mbold('Message:')} {formating.escape_markdown(message)}"
             )
 
-            # Send text message to Telegram
+            # Send text message
             bot.send_message(chat_id=ID, text=text_report, parse_mode='MarkdownV2')
 
-            # If file uploaded → send to Telegram
+            # ✅ PROPER FILE HANDLING
             if file:
-                bot.send_document(chat_id=ID, document=file)
+                file.seek(0)  # reset pointer
 
-            # ✅ Success notification
+                # If image → send as photo
+                if file.content_type.startswith('image'):
+                    bot.send_photo(chat_id=ID, photo=file)
+
+                # If video → send as video
+                elif file.content_type.startswith('video'):
+                    bot.send_video(chat_id=ID, video=file)
+
+                # Otherwise → send as document
+                else:
+                    bot.send_document(
+                        chat_id=ID,
+                        document=file,
+                        visible_file_name=file.name
+                    )
+
             messages.success(request, "✅ Message sent successfully!")
 
         except Exception as e:
-            print("Error:", e)
+            print("UPLOAD ERROR:", e)
             messages.error(request, "❌ Something went wrong. Try again.")
 
     return render(request, 'myApp/contact.html')
+
 
 def service(request):
     return render(request, 'myApp/service.html')

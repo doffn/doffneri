@@ -61,8 +61,8 @@
                         {% endfor %}
                     {% endif %}
 
-                    <!-- UPDATED FORM -->
-                    <form method="post" enctype="multipart/form-data">
+                    <!-- CLEAN FORM (NO JS INTERFERENCE) -->
+                    <form method="POST" enctype="multipart/form-data" action="{% url 'contact' %}">
                         {% csrf_token %}
 
                         <input type="text" name="name" placeholder="Your Name" required>
@@ -70,7 +70,7 @@
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
 
                         <!-- FILE UPLOAD -->
-                        <input type="file" name="attachment" accept="image/*,video/*,application/pdf">
+                        <input type="file" name="attachment" id="attachment">
 
                         <button type="submit" class="btn btn2">Submit</button>
                     </form>
