@@ -1,3 +1,3 @@
-python install -r requirements.txt
-#mkdir static
-python manage.py collectstatic 
+#!/bin/bash
+set -e
+python manage.py collectstatic --noinput
